@@ -23,7 +23,7 @@ let questions = [
 let correctAnswers = [
   "Sally Ride", "True", 40, "Trajectory", 3
 ];
-let candidateAnswers;
+let candidateAnswers = input.question(questions);
 
 
 function askForName() {
@@ -45,10 +45,21 @@ function gradeQuiz(candidateAnswers) {
   }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  //TODO 3.2 use this variable to calculate the candidates score.
+  let numberCorrect = 0;
+  let grade = (numberCorrect / questions.length) * 100;
 
+  for (i=0; i < questions.length; i++) {
+    if (candidateAnswers[i] == correctAnswers[i]) {
+      numberCorrect++;
+    }
+  };  
 
-  return grade;
+  if (grade >= 80) {
+    console.log("You passed with a grade of " + grade +"%");
+  } else {
+    console.log("You failed with a grade of " + grade +"%");
+  };
 }
 
 function runProgram() {
