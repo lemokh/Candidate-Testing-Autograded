@@ -39,9 +39,9 @@ function askQuestion() {
 function gradeQuiz() {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   if (candidateAnswer == correctAnswer) {
-    console.log("CORRECT");
+    console.log("CORRECT ANSWER");
   } else {
-    console.log("INCORRECT");
+    console.log("INCORRECT ANSWER");
   }
 }
 /*
