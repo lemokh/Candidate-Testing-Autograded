@@ -23,7 +23,7 @@ let questions = [
 let correctAnswers = [
   "Sally Ride", "True", 40, "Trajectory", 3
 ];
-let candidateAnswers = input.question(questions);
+let candidateAnswers = [];
 
 
 function askForName() {
@@ -36,15 +36,15 @@ function askQuestion() {
   candidateAnswer = input.question(question);
 }
 
-function gradeQuiz(candidateAnswers) {
+function gradeQuiz() {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  if (candidateAnswer === correctAnswer) {
+  if (candidateAnswer == correctAnswer) {
     console.log("CORRECT");
   } else {
     console.log("INCORRECT");
   }
-
-
+}
+/*
   //TODO 3.2 use this variable to calculate the candidates score.
   let numberCorrect = 0;
   let grade = (numberCorrect / questions.length) * 100;
@@ -61,13 +61,14 @@ function gradeQuiz(candidateAnswers) {
     console.log("You failed with a grade of " + grade +"%");
   };
 }
+*/
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
   console.log("Hi " + candidateName);
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  gradeQuiz();
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
