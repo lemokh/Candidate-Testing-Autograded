@@ -1,16 +1,14 @@
 const input = require('readline-sync');
 
-// TODO 2: modify your quiz app to ask 5 questions //
+// TODO 2: modify your quiz app to ask 5 questions
 
-// TODO 1.1a: Define candidateName // 
+// TODO 1.1a: Define candidateName
 let candidateName = "";
 
-// TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
+// TODO 1.2a: Define question, correctAnswer, and candidateAnswer
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
-
-
 
 //TODO: Variables for Part 2
 let questions = [
@@ -24,55 +22,31 @@ let correctAnswers = [
   "Sally Ride", "True", 40, "Trajectory", 3
 ];
 
-let candidateAnswers; // = input.question(questions);
-
-let responses = [];
+let candidateAnswers = [];
 
 function askForName() {
-  // TODO 1.1b: Ask for candidate's name //
+  // TODO 1.1b: Ask for candidate's name
   candidateName = input.question("Enter candidate's name: ");
 }
 
 function askQuestion() {
-  // TODO 1.2b: Ask candidate each question and assign each response as candidateAnswer //
+  // TODO 1.2b: Ask candidate each question and assign each response as candidateAnswer
   for (i=0; i<questions.length; i++) {
-    responses.push(input.question(questions[i]));
+    candidateAnswers.push(input.question(questions[i]));
   }
-  // console.log(`responses: `, responses);
 }
 
 function gradeQuiz() {
- for (i=0; i<responses.length; i++) {
-  console.log(`candidate response: ${responses[i]},\ncorrect answer: ${correctAnswers[i]}`)
+ for (i=0; i<candidateAnswers.length; i++) {
+  console.log(`candidate answer: ${candidateAnswers[i]},\ncorrect answer: ${correctAnswers[i]}`)
  }
-  // PART ONE
-  // TODO 1.2c: Let candidate know if answered question correctly or incorrectly // 
-  // if (candidateAnswer === correctAnswer) {
-  //   console.log(`CORRECT`);
-  // } else {
-  //   console.log(`INCORRECT`);
-  // }
+
+  // TODO 3.2 use this variable to calculate the candidates score
+  let grade;
+
+  return grade;
 }
 
-/*
-  //TODO 3.2 use this variable to calculate the candidates score.
-  let numberCorrect = 0;
-  let grade = (numberCorrect / questions.length) * 100;
-
-  for (i=0; i<questions.length; i++) {
-    if (candidateAnswers[i] == correctAnswers[i]) {
-      numberCorrect++;
-    }
-  };  
-console.log(grade, numberCorrect);
-
-  if (grade >= 80) {
-    console.log("You passed with a grade of " + grade +"%");
-  } else {
-    console.log("You failed with a grade of " + grade +"%");
-  };
-}
-*/
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
