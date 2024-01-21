@@ -1,11 +1,10 @@
 const input = require('readline-sync');
+// PART TWO -- TODO 2: modify your quiz app to ask 5 questions
 
-// TODO 2: modify your quiz app to ask 5 questions //
-
-// TODO 1.1a: Define candidateName // 
+// PART ONE -- TODO 1.1a: Define candidateName
 let candidateName = "";
 
-// TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
+// TODO 1.2a: Define question, correctAnswer, candidateAnswer
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
@@ -15,18 +14,18 @@ let candidateAnswer = "";
 //TODO: Variables for Part 2
 let questions = [
   "Who was the first American woman in space? ", 
-  "True or false: 5 kilometer == 5000 meters? ", 
+  "5 kilometer == 5000 meters: true or false: ? ", 
   "(5 + 3)/2 * 10 = ? ",
-  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", 
+  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 0? ", 
   "What is the minimum crew size for the ISS? "
 ];
-let correctAnswers = [
-  "Sally Ride", "True", 40, "Trajectory", 3
-];
+let correctAnswers = [ "Sally Ride", "true", 40, 8, 3 ];
 
 let candidateAnswers; // = input.question(questions);
+// !! this doesn't allow me to store each answer in an array !!
+// so doing this on line 39 instead via responses array in for loop
 
-let responses = [];
+let responses = []; // using this instead of: candidateAnswers = input.question(questions);
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -34,7 +33,7 @@ function askForName() {
 }
 
 function askQuestion() {
-  // TODO 1.2b: Ask candidate each question and assign each response as candidateAnswer //
+  // TODO 1.2b: Ask candidate each question and assign each response as candidateAnswer
   for (i=0; i<questions.length; i++) {
     responses.push(input.question(questions[i]));
   }
@@ -42,40 +41,33 @@ function askQuestion() {
 }
 
 function gradeQuiz() {
+  // PART TWO
  for (i=0; i<responses.length; i++) {
   console.log(`candidate response: ${responses[i]},\ncorrect answer: ${correctAnswers[i]}`)
  }
-  // PART ONE
-  // TODO 1.2c: Let candidate know if answered question correctly or incorrectly // 
-  // if (candidateAnswer === correctAnswer) {
-  //   console.log(`CORRECT`);
-  // } else {
-  //   console.log(`INCORRECT`);
-  // }
-}
-
-/*
-  //TODO 3.2 use this variable to calculate the candidates score.
+  //PART THREE -- TODO 3.2 use this variable to calculate the candidates score
   let numberCorrect = 0;
-  let grade = (numberCorrect / questions.length) * 100;
-
+  
   for (i=0; i<questions.length; i++) {
-    if (candidateAnswers[i] == correctAnswers[i]) {
+    if (responses[i] == correctAnswers[i]) {
       numberCorrect++;
     }
-  };  
-console.log(grade, numberCorrect);
+  };
+
+  // must declare grade after for-loop finishes
+  let grade = (numberCorrect / questions.length) * 100;
+  // console.log(grade+"% ", "# correct: ", numberCorrect);
 
   if (grade >= 80) {
-    console.log("You passed with a grade of " + grade +"%");
+    console.log(`You passed with a grade of ${grade}%`);
   } else {
-    console.log("You failed with a grade of " + grade +"%");
+    console.log(`You failed with a grade of ${grade}%`);
   };
 }
-*/
+
 function runProgram() {
   askForName();
-  // TODO 1.1c: Greet candidate using their name //
+  // TODO 1.1c: Greet candidate using their name
   console.log("Hi " + candidateName);
   askQuestion();
   gradeQuiz();
