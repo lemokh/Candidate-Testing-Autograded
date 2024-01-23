@@ -12,12 +12,12 @@ let candidateAnswer = "";
 // TODO: Variables for Part 2
 let questions = [
   "Who was the first American woman in space? ", 
-  "5 kilometer == 5000 meters: True or false? ", 
+  "True or false: 5 kilometer == 5000 meters? ", 
   "(5 + 3)/2 * 10 = ? ",
   "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", 
   "What is the minimum crew size for the ISS? "
 ];
-let correctAnswers = [ "Sally Ride", "True", 40, 8, 3 ];
+let correctAnswers = [ "Sally Ride", "true", "40", "Trajectory", "3" ];
 let candidateAnswers = [];
 
 function askForName() {
@@ -44,6 +44,7 @@ function gradeQuiz() {
   
   for (i=0; i<questions.length; i++) {
     if (candidateAnswers[i] == correctAnswers[i]) {
+      console.log("correctAnswers", correctAnswers);
       numberCorrect++;
     }
   };
@@ -57,6 +58,8 @@ function gradeQuiz() {
   } else {
     console.log(`You failed with a grade of ${grade}%`);
   };
+  console.log("grade", grade);
+  return grade;
 }
 
 function runProgram() {
