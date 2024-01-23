@@ -26,7 +26,7 @@ function askForName() {
 }
 
 function askQuestion() {
-  // TODO 1.2b: Ask candidate each question and assign each response as candidateAnswer
+  // TODO 1.2b: Ask candidate each question & assign each response as a candidateAnswer
   for (i=0; i<questions.length; i++) {
     candidateAnswers.push(input.question(questions[i]));
   }
@@ -43,10 +43,10 @@ function gradeQuiz(candidateAnswers) {
   let numberCorrect = 0;
   
   for (i=0; i<questions.length; i++) {
-    if (candidateAnswers[i] == correctAnswers[i]) { // == should pass "TrAjecTory"
-      // console.log("correctAnswers", correctAnswers);
+    // console.log("correctAnswers", correctAnswers);
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
       numberCorrect++;
-    }
+    } 
   };
 
   // must declare grade after for-loop finishes
@@ -59,7 +59,6 @@ function gradeQuiz(candidateAnswers) {
     console.log(`You failed with a grade of ${grade}%`);
   };
   
-  // console.log("grade:", grade, typeof grade);
   return grade;
 }
 
