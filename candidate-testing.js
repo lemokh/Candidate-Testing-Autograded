@@ -34,7 +34,7 @@ function askQuestion() {
   }
 }
 
-function gradeQuiz(candidateAnswers) { // candidateAnswers perameter unecessary?
+function gradeQuiz(candidateAnswers) {
  for (i=0; i<candidateAnswers.length; i++) {
   console.log(`candidate answer: ${candidateAnswers[i]},\ncorrect answer: ${correctAnswers[i]}`)
  }
