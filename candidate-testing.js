@@ -43,8 +43,8 @@ function gradeQuiz() {
   let numberCorrect = 0;
   
   for (i=0; i<questions.length; i++) {
-    if (candidateAnswers[i] == correctAnswers[i]) {
-      console.log("correctAnswers", correctAnswers);
+    if (candidateAnswers[i] == correctAnswers[i]) { // == should pass "TrAjecTory"
+      // console.log("correctAnswers", correctAnswers);
       numberCorrect++;
     }
   };
@@ -58,7 +58,8 @@ function gradeQuiz() {
   } else {
     console.log(`You failed with a grade of ${grade}%`);
   };
-  console.log("grade", grade);
+  
+  // console.log("grade:", grade, typeof grade);
   return grade;
 }
 
@@ -67,7 +68,7 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name
   console.log("Hi " + candidateName);
   askQuestion();
-  gradeQuiz();
+  gradeQuiz(this.candidateAnswers);
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
