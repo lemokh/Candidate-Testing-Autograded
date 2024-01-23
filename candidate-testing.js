@@ -33,7 +33,7 @@ function askQuestion() {
   // console.log(`candidateAnswers: `, candidateAnswers);
 }
 
-function gradeQuiz() {
+function gradeQuiz(candidateAnswers) {
   // PART TWO
   for (i=0; i<candidateAnswers.length; i++) {
     console.log(`candidate answer: ${candidateAnswers[i]},\ncorrect answer: ${correctAnswers[i]}`)
