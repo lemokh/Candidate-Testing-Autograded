@@ -34,7 +34,7 @@ function askQuestion() {
   }
 }
 
-function gradeQuiz() {
+function gradeQuiz(candidateAnswers) { // candidateAnswers perameter unecessary?
  for (i=0; i<candidateAnswers.length; i++) {
   console.log(`candidate answer: ${candidateAnswers[i]},\ncorrect answer: ${correctAnswers[i]}`)
  }
@@ -50,7 +50,7 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
   console.log("Hi " + candidateName);
   askQuestion();
-  gradeQuiz();
+  gradeQuiz(this.candidateAnswers);
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
